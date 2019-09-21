@@ -5,33 +5,30 @@
 |name|string|null: false|
 |mail|string|null: false, unique: true|
 
-
 ### Association
-- has_many:groups
+- has_many:groups, through: :groups_users
 - has_many:messages
 
 ## massegesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
-|image|string|allow_nil: true|
+|body|text||
+|image|string||
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
-- has_many:groups
+- belongs_to :group
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|menbers|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|massege_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
 
 ### Association
 - belongs_to :user
-- belongs_to :massege
+- belongs_to :messege
 
 ## groups_usersテーブル
 
