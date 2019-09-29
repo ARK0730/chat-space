@@ -10,15 +10,15 @@
           .side-header__box__menu__edit-user
             = fa_icon 'cog', class: 'icon'
     .groups
-      .group
-        .group__group-name
+      .groups__group
+        .groups__group__group-name
           sample A
-        .group__last-message
+        .groups__group__last-message
           aaa
-      .group
-        .group__group-name
+      .groups__group
+        .groups__group__group-name
           sample B
-        .group__last-message
+        .groups__group__last-message
           bbb
 
   .chat-main
@@ -34,13 +34,13 @@
       .main-header__edit-btn
         Edit
     .messages
-      .message
-        .message__upper-info
-          .message__upper-info__talker
+      .messages__message
+        .messages__message__upper-info
+          .messages__message__upper-info__talker
             test
-          .message__upper-info__date
+          .messages__message__upper-info__date
             2019/09/25(Stu)
-        .message__text
+        .messages__message__text
           aaa
     .form
       .new-message
@@ -50,4 +50,3 @@
             = fa_icon 'image', class: 'icon'
         .submit-btn
           SEND
-          
