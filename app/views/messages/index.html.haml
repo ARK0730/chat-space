@@ -1,0 +1,52 @@
+.wrapper
+  .chat-side
+    .side-header
+      .side-header__box
+        .side-header__box__user-name
+          test
+        .side-header__box__menu
+          .side-header__box__menu__new-group
+            = fa_icon 'edit', class: 'icon'
+          .side-header__box__menu__edit-user
+            = fa_icon 'cog', class: 'icon'
+    .groups
+      .groups__group
+        .groups__group__group-name
+          sample A
+        .groups__group__last-message
+          aaa
+      .groups__group
+        .groups__group__group-name
+          sample B
+        .groups__group__last-message
+          bbb
+
+  .chat-main
+    .main-header
+      .main-header__left-box
+        .main-header__left-box__crrent-group
+          sample A
+        .main-header__left-box__member-list
+          Member:
+          .main-header__left-box__member-list__member
+            test
+
+      .main-header__edit-btn
+        Edit
+    .messages
+      .messages__message
+        .messages__message__upper-info
+          .messages__message__upper-info__talker
+            test
+          .messages__message__upper-info__date
+            2019/09/25(Stu)
+        .messages__message__text
+          aaa
+    .form
+      .new-message
+        .input-box
+          %input.input-box__text#message_content{ placeholder: "type a message"}　
+          %label.input-box__image
+            = fa_icon 'image', class: 'icon'
+        .submit-btn
+          SEND
