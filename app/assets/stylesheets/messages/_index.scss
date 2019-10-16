@@ -14,13 +14,13 @@
       display: flex;
       align-items: center;
       padding: 0 20px;
-    
+
       &__box{
         display: flex;
         justify-content: space-between;
         width: 100%;
         font-weight: bold;
-      
+
         &__user-name{
           font-size: 16px;
           font-weight: bold
@@ -28,12 +28,20 @@
         &__menu{
           display: flex;
           cursor: pointer;
-        
+
           &__new-group{
             margin-left: 0.3rem;
+            a:link {color:white; text-decoration:none }
+            a:visited { color:white; text-decoration:none }
+            a:hover { color:white; text-decoration:none }
+            a:active { color:white; text-decoration:none }
           }
           &__edit-user{
             margin-left: 0.3rem;
+            a:link {color:white; text-decoration:none }
+            a:visited { color:white; text-decoration:none }
+            a:hover { color:white; text-decoration:none }
+            a:active { color:white; text-decoration:none }
           }
         }
       }
@@ -43,21 +51,25 @@
       background-color: #2f3e51;
       padding: 20px 20px 0;
       overflow: scroll;
-    
-      &__group{
-        margin-bottom: 40px;
-      
-        &__group-name{
+    }
+      .group{
+        margin-bottom: 20px;
+      }
+        .group__name{
+          margin-top: 20px;
           margin-bottom: 5px;
           font-size: 15px;
           font-weight: bold;
+          color: white;
+          text-decoration: none;
         }
-        &__last-message{
+        .group__message{
           font-size: 11px;
           font-weight: bold;
+          margin-bottom: 40px;
+          color: white;
+          text-decoration: none;
         }
-      }
-    }
   .chat-main{
     width: calc(100vw - 300px);
     height: 100vh;
@@ -186,4 +198,7 @@
           color: white;
           cursor: pointer;
         }
+  a{
+    text-decoration: none;
+  }
 }
