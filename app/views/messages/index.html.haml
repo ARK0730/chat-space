@@ -4,28 +4,24 @@
     .main-header
       .main-header__left-box
         .main-header__left-box__crrent-group
-          sample A
+          = @group.name
         .main-header__left-box__member-list
           Member:
           .main-header__left-box__member-list__member
-            test
+            - @group.users.each do |user|
+              = user.name
 
       .main-header__edit-btn
         Edit
+
     .messages
-      .messages__message
-        .messages__message__upper-info
-          .messages__message__upper-info__talker
-            test
-          .messages__message__upper-info__date
-            2019/09/25(Stu)
-        .messages__message__text
-          aaa
+      = render @messages
+
     .form
-      .new-message
-        .input-box
-          %input.input-box__text#message_content{ placeholder: "type a message"}　
-          %label.input-box__image
-            = fa_icon 'image', class: 'icon'
-        .submit-btn
-          SEND
+      = form_for [@group, @message], :html => {:class => "new-message"} do |f|
+        = f.text_field :content, class: 'input-box', placeholder: 'type a message'
+        %divs
+          = f.label :image, class: 'input__box__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'submit-btn'
