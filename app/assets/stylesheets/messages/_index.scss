@@ -124,6 +124,10 @@
         cursor: pointer;
         right: 40px;
         color: rgb(56, 174, 240);
+        a:link {color:rgb(56, 174, 240); text-decoration:none }
+        a:visited { color:rgb(56, 174, 240); text-decoration:none }
+        a:hover { color:rgb(56, 174, 240); text-decoration:none }
+        a:active { color:rgb(56, 174, 240); text-decoration:none }
         }
     }
     .messages{
