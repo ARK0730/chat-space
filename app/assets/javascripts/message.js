@@ -41,7 +41,7 @@ $(document).on('turbolinks:load', function(){
       alert('投稿に失敗しました。');
     })
     .always(function(data){
-      $('.submit-btn').prop('disabled', false);　//ここで解除している
+      $('.submit-btn').prop('disabled', false);
     })
   })
 })
