@@ -55,7 +55,6 @@ $(document).on('turbolinks:load', function(){
       })
       .done(function (messages) {
         var insertHTML = '';
-        console.log(messages)
           messages.forEach(function (message) {
           insertHTML = buildHTML(message);
           $('.messages').append(insertHTML);
@@ -63,8 +62,7 @@ $(document).on('turbolinks:load', function(){
         $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       })
       .fail(function () {
-        console.log('エラー')
-        // alert('自動更新に失敗しました');
+        alert('自動更新に失敗しました');
       });
     };
   }
