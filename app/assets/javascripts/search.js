@@ -2,6 +2,7 @@ $(document).on('turbolinks:load', function(){
 
   var search_list = $("#user-search-result");
   var member_list = $("#member_search_result");
+  var group_id = $('.chat__group_id').val();
 
   function appendUsers(user) {
     var html =`<div class="chat-group-user clearfix">
@@ -38,25 +39,34 @@ $(document).on('turbolinks:load', function(){
       $.ajax({
         type: 'GET',
         url: '/users',
-        data: { keyword: input },
+        data: { keyword: input, groupId: group_id },
         dataType: 'json'
       })
 
-      .done(function(users) {
-        $("#user-search-result").empty();
-          if (users.length !== 0) {
-            users.forEach(function(user){
-            appendUsers(user);
+      .done(function(users){                // usersにjson形式のuser変数が代入される。複数形なので配列型で入ってくる
+
+        if (input.length === 0) {         // フォームの文字列長さが0であれば、インクリメンタルサーチ結果を表示しないようにする
+            $('#user-search-result').empty();
+        }
+
+        else if (input.length !== 0){     // 値が等しくないもしくは型が等しくなければtrueを返す。
+            $('#user-search-result').empty();
+            users.forEach(function(user){ // users情報をひとつずつとりだしてuserに代入
+              appendUsers(user)
             });
-          }
-          else {
-            appendNoUsers("一致するユーザーはいません");
-          }
-        })
-      .fail(function() {
-        alert('ユーザー検索に失敗しました');
+        }
+
+        else {
+            $('#user-search-result').empty(); // ユーザーが見つからなければ「見つからない」を返す。
+            appendNoUsers("一致するユーザーが見つかりません");
+        }
       })
+
+    .fail(function() {
+      alert('ユーザー検索に失敗しました');
     });
+  });
+});
 
     $(function(){
       $(document).on('click', '.user-search-add', function() {
@@ -70,5 +80,4 @@ $(document).on('turbolinks:load', function(){
         $(this).parent().remove();
       });
     });
-  });
 });
