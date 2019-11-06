@@ -51,13 +51,13 @@ $(document).on('turbolinks:load', function(){
 
         else if (input.length !== 0){     // 値が等しくないもしくは型が等しくなければtrueを返す。
             $('#user-search-result').empty();
-            users.forEach(function(user){ // users情報をひとつずつとりだしてuserに代入
+            users.forEach(function(user){
               appendUsers(user)
             });
         }
 
         else {
-            $('#user-search-result').empty(); // ユーザーが見つからなければ「見つからない」を返す。
+            $('#user-search-result').empty(); // 見つからないを返す。
             appendNoUsers("一致するユーザーが見つかりません");
         }
       })
